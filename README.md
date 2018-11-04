@@ -7,3 +7,5 @@ Examples:
 
 ![Alt text](./examples/cubist_cat.png?raw=true "Cubist Cat")
 ![Alt text](./examples/starry_hall.jpg?raw=true "Starry Hall")
+
+This code will show you how to design your own loss,grad function and implement it.
