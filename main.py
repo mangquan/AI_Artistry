@@ -22,7 +22,7 @@ genImOutputPath = ''
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
 targetHeight = 512
 targetWidth = 512
-targetSize = (targetHeight, targetWidth)
+targetSize = (targetWidth, targetHeight)
 
 cImageOrig = Image.open(cImPath)
 cImageSizeOrig = cImageOrig.size
@@ -86,7 +86,7 @@ def calculate_loss(gImArr):
     """
     Calculate total loss using K.function
     """
-    if gImArr.shape != (1, targetWidth, targetWidth, 3):
+    if gImArr.shape != (1, targetWidth, targetHeight, 3):
         gImArr = gImArr.reshape((1, targetWidth, targetHeight, 3))
     loss_fcn = K.function([gModel.input], [get_total_loss(gModel.input)])
     return loss_fcn([gImArr])[0].astype('float64')
